@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+  body 
+    nav
+      ul
+        each category in categories 
+          li  
+            a(href=category.url) #{category.name}
+
+        else 
+          p No categories yet . 
+
+block content
