@@ -20,6 +20,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+// Set up mongoose connection
+const mongoose = require('mongoose');
+const mongoDB = require('./mongoDB');
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

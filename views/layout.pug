@@ -6,13 +6,9 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
   body 
-    nav
-      ul
-        each category in categories 
-          li  
-            a(href=category.url) #{category.name}
 
-        else 
-          p No categories yet . 
+    ul 
+      li: a(href='/category') Categories 
+      li: a(href='/item') Items
 
-block content
+    block content
